@@ -7,7 +7,7 @@ const Home = () => {
       <p>
         <strong>Orn Eletróferragem</strong> é uma referência em Moçambique, com mais de 10 anos de 
         experiência no fornecimento de materiais eletrônicos de alta qualidade e serviços especializados. 
-        Localizada na cidade de Maputo, nossa missão é atender às necessidades dos nossos clientes com excelência,
+         Nossa missão é atender às necessidades dos nossos clientes com excelência,
          oferecendo soluções inovadoras e personalizadas no setor elétrico. Com uma equipe qualificada e comprometida, 
          garantimos que nossos produtos e serviços atendam aos mais altos padrões de qualidade e confiabilidade.
       </p>
