@@ -3,10 +3,14 @@ import {HomeIntr} from '../../../Components/home/index'
 
 const Home = () => {
   return (
-    <div className='pt-20'>
-      <h1 className='font-bold text-blue-600'>Introdução à Empresa</h1>
+    <div className='pt-24'>
+     <div className='flex justify-between'>
+       <h1 className='font-bold text-blue-600'>Introdução à Empresa</h1>
       <HomeIntr/>
-      <h2>Destaques</h2>
+      
+      </div>
+      <div>
+        <h2>Destaques</h2>
       <ul>
         <li><strong>Descontos em Materiais Eletrônicos:</strong> Aproveite até 20% de desconto em componentes eletrônicos selecionados!</li>
         <li><strong>Serviço de Montagem de Painéis:</strong> Contrate nosso serviço de montagem e ganhe um desconto exclusivo 
@@ -38,7 +42,9 @@ const Home = () => {
         <li><strong>Website:</strong> www.orneletrferragem.co.mz</li>
         <li><strong>Horário de Funcionamento:</strong> Segunda a Sexta, das 08h às 17h</li>
       </ul>
+      </div>
     </div>
+    
   );
 };
 

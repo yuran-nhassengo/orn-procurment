@@ -12,12 +12,16 @@ export const HomeIntr = () => {
   `;
 
   return (
-    <div className='pt-8 text-center justify-'>
-       <p className='text-center justify'>
-        <strong>Orn Eletróferragem</strong> <TypingEffect text={introductionText} />
-      </p>
+    <div className='flex pt-8'>
+      <div className='flex-1 text-center'>
+        <p className='justify'>
+          <strong className='animate-ping'>Orn Eletróferragem</strong> 
+          <TypingEffect text={introductionText} />
+        </p>
+      </div>
+      <div className='flex-1'>
+        <img src="URL_DA_IMAGEM" alt="Descrição da imagem" className='w-full h-auto' />
+      </div>
     </div>
   );
 };
-
-
