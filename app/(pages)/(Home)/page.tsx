@@ -1,17 +1,11 @@
 import React from 'react';
+import {HomeIntr} from '../../../Components/home/index'
 
 const Home = () => {
   return (
-    <div className='pt-24'>
-      <h1>Introdução à Empresa</h1>
-      <p>
-        <strong>Orn Eletróferragem</strong> é uma referência em Moçambique, com mais de 10 anos de 
-        experiência no fornecimento de materiais eletrônicos de alta qualidade e serviços especializados. 
-         Nossa missão é atender às necessidades dos nossos clientes com excelência,
-         oferecendo soluções inovadoras e personalizadas no setor elétrico. Com uma equipe qualificada e comprometida, 
-         garantimos que nossos produtos e serviços atendam aos mais altos padrões de qualidade e confiabilidade.
-      </p>
-
+    <div className='pt-20'>
+      <h1 className='font-bold text-blue-600'>Introdução à Empresa</h1>
+      <HomeIntr/>
       <h2>Destaques</h2>
       <ul>
         <li><strong>Descontos em Materiais Eletrônicos:</strong> Aproveite até 20% de desconto em componentes eletrônicos selecionados!</li>
