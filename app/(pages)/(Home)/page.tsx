@@ -2,7 +2,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div>
+    <div className='pt-24'>
       <h1>Introdução à Empresa</h1>
       <p>
         <strong>Orn Eletróferragem</strong> é uma referência em Moçambique, com mais de 10 anos de 
