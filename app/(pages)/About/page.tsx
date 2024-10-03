@@ -1,8 +1,12 @@
+import Description from '@/Components/about/description';
 import React from 'react';
 
 const About = () => {
   return (
     <div>
+
+        <Description />
+
       <h1>Sobre Nós</h1>
 
       <h2>Visão</h2>
