@@ -15,9 +15,11 @@ export const CarouselItem = ({ children }: { children: React.ReactNode }) => (
 );
 
 // Componente CarouselContent
-export const CarouselContent = ({ children }: { children: React.ReactNode }) => (
-  <div className="flex">{children}</div>
-);
+export const CarouselContent = ({
+  children,
+}: {
+  children: React.ReactNode;
+}) => <div className="flex">{children}</div>;
 
 // Componente CarouselPrevious (Botão de navegação para trás)
 export const CarouselPrevious = ({ onClick }: { onClick: () => void }) => (

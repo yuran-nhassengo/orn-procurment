@@ -1,8 +1,14 @@
-import { div } from 'framer-motion/client'
-import React from 'react'
+import { PrismaClient } from "@prisma/client";
+
+
+const prisma = new PrismaClient();
 
 
 export const getAllProducts = async () => {
+
+    const productos = await prisma.produto.findMany();
+
+    return productos;
   
 };
 

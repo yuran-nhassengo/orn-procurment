@@ -5,7 +5,7 @@ interface TypingEffectProps {
   speed?: number;
 }
 
-const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 50 }) => {
+const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 15 }) => {
   const [displayedText, setDisplayedText] = useState('');
 
   useEffect(() => {
@@ -27,4 +27,3 @@ const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 50 }) => {
 };
 
 export default TypingEffect;
-
