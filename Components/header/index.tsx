@@ -33,7 +33,7 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { link: "Home", path: "/home", icon: <FaHome /> },
+    { link: "Home", path: "/", icon: <FaHome /> },
     { link: "Product", path: "/product", icon: <FaBox /> },
     { link: "Service", path: "/service", icon: <FaCogs /> },
     { link: "Blog", path: "/blog", icon: <FaBlog /> },
