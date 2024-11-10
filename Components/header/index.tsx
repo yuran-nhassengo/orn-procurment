@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import {
   FaBox,
@@ -9,7 +10,7 @@ import {
   FaCogs,
   FaHome,
 } from "react-icons/fa";
-import { Link } from "react-scroll";
+
 
 const Header = () => {
   const [isSticky, setSticky] = useState(false);
@@ -31,11 +32,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { link: "Home", path: "home", icon: <FaHome /> },
-    { link: "Product", path: "product", icon: <FaBox /> },
-    { link: "Service", path: "service", icon: <FaCogs /> },
-    { link: "Blog", path: "blog", icon: <FaBlog /> },
-    { link: "About", path: "about", icon: <FaUser /> },
+    { link: "Home", path: "/home", icon: <FaHome /> },
+    { link: "Product", path: "/product", icon: <FaBox /> },
+    { link: "Service", path: "/service", icon: <FaCogs /> },
+    { link: "Blog", path: "/blog", icon: <FaBlog /> },
+    { link: "about", path: "/About", icon: <FaUser /> },
     { link: "Faq", path: "faq", icon: <FaQuestion /> },
   ];
 
@@ -99,11 +100,8 @@ const Header = () => {
         <div className="flex justify-around py-4">
           {navItems.map(({ link, path, icon }) => (
             <Link
-              to={path}
-              spy={true}
-              smooth={true}
-              offset={-100}
-              key={path}
+              href={path}
+              
               className="block text-center"
             >
               <div className="text-white text-3xl">{icon}</div>
