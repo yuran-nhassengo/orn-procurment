@@ -18,5 +18,27 @@ export const createCategory = async (nome:string) => {
             }
         })
 
-        return categoria
+        return categoria;
+};
+
+export const updateCategoria = async (
+    id:string,
+    data:{
+        nome?:string
+    }
+) => {
+        const categoria = await prisma.categoria.update({
+            where:{id},
+            data
+        }) 
+
+        return categoria;
+};
+
+export const deleteCategoria = async (id: string) =>{
+    const categoria = await prisma.categoria.delete({
+        where:{id}
+    });
+
+    return categoria;
 };
