@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import {
   FaBox,
@@ -9,7 +10,7 @@ import {
   FaCogs,
   FaHome,
 } from "react-icons/fa";
-import { Link } from "react-scroll";
+
 
 
 const Header = () => {
@@ -32,11 +33,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { link: "Home", path: "home", icon: <FaHome /> },
-    { link: "Product", path: "product", icon: <FaBox /> },
-    { link: "Service", path: "service", icon: <FaCogs /> },
-    { link: "Blog", path: "blog", icon: <FaBlog /> },
-    { link: "About", path: "about", icon: <FaUser /> },
+    { link: "Home", path: "/home", icon: <FaHome /> },
+    { link: "Product", path: "/product", icon: <FaBox /> },
+    { link: "Service", path: "/service", icon: <FaCogs /> },
+    { link: "Blog", path: "/blog", icon: <FaBlog /> },
+    { link: "about", path: "/About", icon: <FaUser /> },
     { link: "Faq", path: "faq", icon: <FaQuestion /> },
   ];
 
@@ -81,10 +82,7 @@ const Header = () => {
           <ul className="md:flex space-x-4 xl:space-x-8  hidden">
             {navItems.map(({ link, path }) => (
               <Link
-                to={path}
-                spy={true}
-                smooth={true}
-                offset={-100}
+                href={path}
                 key={path}
                 className="block text-sm lg:text-base text-cinza hover:text-azul font-medium transition duration-200 ease-in-out"
               >
@@ -100,11 +98,8 @@ const Header = () => {
         <div className="flex justify-around py-4">
           {navItems.map(({ link, path, icon }) => (
             <Link
-              to={path}
-              spy={true}
-              smooth={true}
-              offset={-100}
-              key={path}
+              href={path}
+              
               className="block text-center"
             >
               <div className="text-white text-3xl">{icon}</div>
