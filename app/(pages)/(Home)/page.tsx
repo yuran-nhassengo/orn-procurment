@@ -4,7 +4,7 @@ import { CarouselSpacing } from '@/Components/home/destaq';
 
 const Home = () => {
   return (
-    <div className="pt-24 px-8">
+    <div className="pt-24 px-8 w-full text-justify">
      
       <h1 className="font-bold text-blue-600 text-3xl text-center mb-12">
         Introdução à Empresa
@@ -21,7 +21,7 @@ const Home = () => {
       </div>
 
       {/* Serviços */}
-      <section className="mb-16 bg-white p-8 rounded-lg shadow-md">
+      <section className="mb-16 dark:bg-gray-900 border-2 p-8 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">Serviços</h2>
         <ul className="space-y-4">
           <li>
@@ -48,7 +48,7 @@ const Home = () => {
       </section>
 
       {/* Contactos */}
-      <section className="bg-gray-100 p-8 rounded-lg shadow-md">
+      <section className="border-2 dark:bg-gray-900 p-8 rounded-lg shadow-md">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">Contactos</h2>
         <p className="mb-4">
           Entre em contato conosco para mais informações sobre nossos produtos e
