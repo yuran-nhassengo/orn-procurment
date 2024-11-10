@@ -81,10 +81,7 @@ const Header = () => {
           <ul className="md:flex space-x-4 xl:space-x-8  hidden">
             {navItems.map(({ link, path }) => (
               <Link
-                to={path}
-                spy={true}
-                smooth={true}
-                offset={-100}
+                href={path}
                 key={path}
                 className="block text-sm lg:text-base text-cinza hover:text-azul font-medium transition duration-200 ease-in-out"
               >
