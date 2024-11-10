@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useState } from "react";
@@ -15,7 +14,6 @@ import { Link } from "react-scroll";
 const Header = () => {
   const [isSticky, setSticky] = useState(false);
 
-
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
@@ -28,9 +26,7 @@ const Header = () => {
     window.addEventListener("scroll", handleScroll);
 
     return () => {
-
       window.removeEventListener("scroll", handleScroll);
-
     };
   }, []);
 
@@ -63,20 +59,20 @@ const Header = () => {
             <img
               src="https://media.istockphoto.com/id/1313644269/pt/vetorial/gold-and-silver-circle-star-logo-template.jpg?s=612x612&w=0&k=20&c=scmIJTmynhc2Y3fs9a-RN6UDB5OJrz06AJqo5w9jSgo="
               alt="logo"
-              className="w-10 inline-block"
+              className="w-5 md:w-10 inline-block"
             />{" "}
             {/* Logo maior */}
-            <span className=" text-base lg:text-xl font-semibold  ">
+            <span className=" text-sm lg:text-xl font-semibold  ">
               ORN Electroferragem
             </span>
           </Link>
 
-          {/* Barra de pesquisa para desktop */}
+          {/* Barra de pesquisa  */}
           <div className="flex  flex-1 justify-end md:justify-center animate-pulse">
             <input
               type="text"
               placeholder="Buscar..."
-              className="px-4 py-2 border w-9/12 rounded-full bg-gray-800 dark:bg-black max-w-sm text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform duration-150 ease-in-out"
+              className="px-4 py-2 border w-11/12 rounded-full bg-gray-800 dark:bg-black max-w-screen-md text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform duration-150 ease-in-out"
             />
           </div>
 
@@ -118,6 +114,5 @@ const Header = () => {
     </header>
   );
 };
-
 
 export default Header;

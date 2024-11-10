@@ -28,9 +28,9 @@ const highlights = [
 
 export function CarouselSpacing() {
   return (
-    <div className="mb-16  border-2 p-8 rounded-lg shadow-md">
+    <div className="mb-16 dark:bg-gray-900 border-2 p-2 rounded-lg shadow-xl">
       {/* Seção Destaques */}
-      <h2 className="text-2xl font-semibold text-blue-600 mb-4">Destaques</h2>
+      <h2 className="text-xl font-semibold text-blue-600 mb-4">Destaques</h2>
       <div className="flex flex-col items-center">
         <Carousel className="w-full max-w-md">
           <CarouselContent className="-ml-1">
@@ -39,13 +39,13 @@ export function CarouselSpacing() {
                 key={index}
                 className="pl-1 md:basis-1/2 lg:basis-1/3"
               >
-                <div className="p-2">
-                  <Card className="h-full  flex-col items-center justify-center bg-white p-6 shadow-lg rounded-lg">
+                <div className="p-1 md:p-4">
+                  <Card className="  flex-col items-center justify-center p-0 md:p-4 shadow-lg rounded-lg">
                     <CardContent className="text-center">
-                      <h3 className="text-xl font-semibold text-blue-600 mb-2">
+                      <h3 className="text-sm font-normal text-blue-600 mb-2">
                         {highlight.title}
                       </h3>
-                      <p className="text-gray-700">{highlight.description}</p>
+                      <p className="">{highlight.description}</p>
                     </CardContent>
                   </Card>
                 </div>
