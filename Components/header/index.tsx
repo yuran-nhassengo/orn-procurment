@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import React, { useEffect, useState } from 'react';
 import { FaBars, FaXmark } from 'react-icons/fa6';
@@ -36,7 +36,7 @@ const Header = () => {
     { link: "Service", path: "service" },
     { link: "Blog", path: "blog" },
     { link: "Contact", path: "contact" },
-    { link: "About", path: "/about" }, // Link para a página
+    { link: "About", path: "/about" },
     { link: "Faq", path: "faq" },
   ];
 
@@ -51,8 +51,7 @@ const Header = () => {
 
           <ul className='md:flex space-x-12 hidden'>
             {navItems.map(({ link, path }) => (
-              path.startsWith('/about') ? (
-                // Link para outra página com Next.js
+              path.startsWith('/') ? (
                 <Link
                   key={path}
                   href={path}
@@ -61,7 +60,6 @@ const Header = () => {
                   {link}
                 </Link>
               ) : (
-                // Rolagem dentro da página
                 <ScrollLink
                   to={path}
                   spy={true}
