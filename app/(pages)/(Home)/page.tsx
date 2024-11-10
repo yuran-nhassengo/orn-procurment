@@ -17,7 +17,7 @@ const Home = () => {
 
       {/* Destaques */}
       <div>
-        <CarouselSpacing/>
+      
       </div>
 
       {/* Serviços */}
