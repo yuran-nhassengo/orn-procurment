@@ -1,3 +1,4 @@
+import Contact from '@/Components/contact';
 import React from 'react';
 
 const About = () => {
@@ -145,6 +146,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      <Contact/>
     </div>
   );
 };
