@@ -42,3 +42,10 @@ export const deleteCategoria = async (id: string) =>{
 
     return categoria;
 };
+
+export const getCategoriaById = async (id: string) => {
+    const categoria = await prisma.categoria.findUnique({
+        where: { id }
+    });
+    return categoria; 
+};
