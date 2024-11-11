@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaBox,
   FaBlog,
@@ -13,7 +13,23 @@ import {
 import ThemeToggle from "./themeToggle";
 
 const Header = () => {
-  const [isSticky] = useState(false);
+  const [isSticky, setSticky] = useState(false);
+
+  useEffect(() =>{
+    const handleScroll = () =>{
+        if(window.scrollY > 100){
+            setSticky(true);
+        }else{
+            setSticky(false);
+        }
+    };
+
+    window.addEventListener("scroll",handleScroll);
+
+    return () => {
+        window.addEventListener('scroll',handleScroll);
+    }
+})
 
   const navItems = [
     { link: "Home", path: "/", icon: <FaHome /> },
@@ -26,17 +42,13 @@ const Header = () => {
 
   return (
     <header
-      className={`w-full ${
-        isSticky
-          ? "sticky top-0 left-0 right-0 border-b shadow-md"
-          : "dark:bg-orange-500 duration-300"
-      } fixed top-0 left-0 right-0 z-50`}
+      className={`w-full ${isSticky ? "sticky top-0 left-0 right-0 border-b" :" dark:bg-orange-500 00 duration-300 transition-colors ease-in-out"} fixed top-0 left-0 right-0 z-50`}
     >
       <nav
         className={`py-4 px-4 ${
           isSticky
-            ? "sticky top-0 left-0 right-0 border-b shadow-md"
-            : "bg-amareloPrimaria duration-300"
+            ? "bg-opacity-90 bg-white dark:bg-black/80 duration-300 transition-colors ease-in-out"
+            : " duration-300 transition-colors ease-in-out"
         }`}
       >
         <div className="flex justify-between items-center text-base gap-8">
@@ -76,7 +88,7 @@ const Header = () => {
               <Link
                 href={path}
                 key={path}
-                className="block  text-sm lg:text-lg text-cinza hover:text-blue-500 font-medium transition-all duration-200 ease-in-out"
+                className="block text-sm lg:text-lg text-cinza hover:text-blue-500 font-medium transition-all duration-200 ease-in-out"
               >
                 {link}
               </Link>
@@ -92,7 +104,7 @@ const Header = () => {
             <Link href={path} key={path} className="block text-center">
               <div className="flex flex-col items-center justify-center">
                 {/* Ícone com hover e transição suave */}
-                <div className="text-white  text-3xl hover:text-blue-500 transition-all duration-200 ease-in-out">
+                <div className="text-white text-3xl hover:text-blue-500 transition-all duration-200 ease-in-out">
                   {icon}
                 </div>
                 {/* Mini texto abaixo do ícone */}
