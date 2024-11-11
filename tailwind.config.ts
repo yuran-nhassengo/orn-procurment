@@ -6,12 +6,12 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  darkMode: 'class', 
+  darkMode: 'class',  // Usa a classe `dark` para alternar entre os temas
   theme: {
     extend: {
       colors: {
-        background: "var(--background)", 
-        foreground: "var(--foreground)", 
+        background: "var(--background)",
+        foreground: "var(--foreground)",
       },
     },
   },

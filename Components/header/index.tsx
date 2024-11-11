@@ -39,15 +39,7 @@ const Header = () => {
     };
   }, []);
 
-  // Função para alternar o tema
-  const toggleTheme = () => {
-    const newTheme = theme === "light" ? "dark" : "light";
-    setTheme(newTheme);
-    localStorage.setItem("theme", newTheme);
 
-    // Alterna a classe 'dark' no <html>
-    document.documentElement.classList.toggle("dark", newTheme === "dark");
-  };
 
   const navItems = [
     { link: "Home", path: "/", icon: <FaHome /> },
@@ -99,11 +91,11 @@ const Header = () => {
           </div>
 
           {/* Botão de alternância de tema */}
-          <ThemeToggle />
 
 
           {/* Links de navegação no desktop */}
           <ul className="md:flex space-x-4 xl:space-x-8 hidden">
+            <ThemeToggle />
             {navItems.map(({ link, path }) => (
               <Link
                 href={path}
@@ -113,6 +105,7 @@ const Header = () => {
                 {link}
               </Link>
             ))}
+
           </ul>
         </div>
       </nav>
@@ -125,6 +118,8 @@ const Header = () => {
               <div className="text-white text-3xl">{icon}</div>
             </Link>
           ))}
+                    <ThemeToggle />
+
         </div>
       </div>
     </header>
