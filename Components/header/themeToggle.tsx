@@ -6,23 +6,37 @@ import { FaSun, FaMoon, FaAdjust } from "react-icons/fa";
 const ThemeToggle = () => {
   const [theme, setTheme] = useState<"light" | "dark" | "system">("system");
 
-  // Função para definir a classe de tema no <html>
   const setThemeClass = (theme: "light" | "dark" | "system") => {
     if (theme === "dark") {
       document.documentElement.classList.add("dark");
     } else if (theme === "light") {
       document.documentElement.classList.remove("dark");
-    } else {
-      // 'system' não faz nada, pois depende da preferência do sistema
+    } else if (theme === "system") {
+      const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.classList.toggle("dark", systemPrefersDark);
     }
   };
 
-  // Ao carregar o componente, verifica o tema salvo no localStorage ou a preferência do sistema
+  const toggleTheme = () => {
+    let newTheme: "light" | "dark" | "system";
+
+    if (theme === "system") {
+      newTheme = "dark"; 
+    } else if (theme === "dark") {
+      newTheme = "light"; 
+    } else {
+      newTheme = "system";
+    }
+
+    setTheme(newTheme);
+    localStorage.setItem("theme", newTheme);
+    setThemeClass(newTheme);
+  };
+
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme");
     const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    // Se houver tema salvo no localStorage, usa ele. Caso contrário, usa a preferência do sistema
     if (savedTheme && savedTheme !== "system") {
       setTheme(savedTheme as "light" | "dark");
       setThemeClass(savedTheme as "light" | "dark");
@@ -37,7 +51,6 @@ const ThemeToggle = () => {
       setThemeClass("light");
     }
 
-    // Detecta mudanças na preferência do sistema em tempo real
     const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
     const handleSystemThemeChange = (e: MediaQueryListEvent) => {
       if (savedTheme === "system" || theme === "system") {
@@ -47,46 +60,19 @@ const ThemeToggle = () => {
       }
     };
 
-    // Escuta mudanças na preferência do sistema
     mediaQuery.addEventListener("change", handleSystemThemeChange);
 
-    // Limpeza do event listener
     return () => {
       mediaQuery.removeEventListener("change", handleSystemThemeChange);
     };
-  }, [theme]); // Quando o `theme` mudar, o `useEffect` será executado novamente
-
-  // Alterna o tema manualmente e salva no localStorage
-  const toggleTheme = (selectedTheme: "light" | "dark" | "system") => {
-    setTheme(selectedTheme);
-    localStorage.setItem("theme", selectedTheme); // Salva no localStorage
-    setThemeClass(selectedTheme); // Aplica a classe no HTML
-  };
+  }, [theme]);
 
   return (
     <div className="flex items-center space-x-4">
-      {/* Botão para "Sistema" */}
-      <button
-        onClick={() => toggleTheme("system")}
-        className={`text-2xl ${theme === "system" ? "text-blue-500" : "text-gray-500"}`}
-      >
-        <FaAdjust />
-      </button>
-
-      {/* Botão para "Light" */}
-      <button
-        onClick={() => toggleTheme("light")}
-        className={`text-2xl ${theme === "light" ? "text-yellow-500" : "text-gray-500"}`}
-      >
-        <FaSun />
-      </button>
-
-      {/* Botão para "Dark" */}
-      <button
-        onClick={() => toggleTheme("dark")}
-        className={`text-2xl ${theme === "dark" ? "text-yellow-300" : "text-gray-500"}`}
-      >
-        <FaMoon />
+      <button onClick={toggleTheme} className="text-2xl">
+        {theme === "system" && <FaAdjust className="text-blue-500" />}
+        {theme === "dark" && <FaMoon className="text-yellow-300" />}
+        {theme === "light" && <FaSun className="text-yellow-500" />}
       </button>
     </div>
   );
