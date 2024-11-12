@@ -38,7 +38,7 @@ const Header = () => {
     { link: "Service", path: "/service", icon: <FaCogs /> },
     { link: "Blog", path: "/blog", icon: <FaBlog /> },
     { link: "about", path: "/About", icon: <FaUser /> },
-    { link: "Faq", path: "faq", icon: <FaQuestion /> },
+    { link: "Faq", path: "/Faq", icon: <FaQuestion /> },
   ];
 
   return (
