@@ -43,7 +43,7 @@ const items = [
 export function AppSidebar() {
   return (
     <div  >
-            <Sidebar className="flex flex-1 pt-22">
+            <Sidebar className="flex flex-1 pt-20">
             <SidebarContent>
                 <SidebarGroup>
                 <SidebarGroupLabel >Perguntas Frequentes</SidebarGroupLabel>
