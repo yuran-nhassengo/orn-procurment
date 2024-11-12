@@ -9,6 +9,7 @@ import {
   FaCogs,
   FaHome,
   FaInfoCircle,
+  FaUser,
 } from "react-icons/fa";
 import ThemeToggle from "./themeToggle";
 
@@ -36,8 +37,8 @@ const Header = () => {
     { link: "Product", path: "/product", icon: <FaBox /> },
     { link: "Service", path: "/service", icon: <FaCogs /> },
     { link: "Blog", path: "/blog", icon: <FaBlog /> },
-    { link: "About", path: "/about", icon: <FaInfoCircle /> },
-    { link: "FAQ", path: "/faq", icon: <FaQuestion /> },
+    { link: "about", path: "/About", icon: <FaUser /> },
+    { link: "Faq", path: "/Faq", icon: <FaQuestion /> },
   ];
 
   return (
