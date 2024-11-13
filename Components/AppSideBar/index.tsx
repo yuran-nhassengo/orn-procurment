@@ -16,29 +16,34 @@ const items = [
   {
     title: "Home",
     url: "home",
-    icon: Home,
+    icon: Home,  // Ícone para Home
   },
   {
     title: "Inbox",
     url: "inbox",
-    icon: Inbox,
+    icon: Inbox,  // Ícone para Inbox (caixa de entrada)
   },
   {
-    title: "Calendar",
+    title: "Projetos",
     url: "calendar",
-    icon: Calendar,
+    icon: Calendar,  // Ícone para Projetos
   },
   {
-    title: "Search",
+    title: "Produtos",
     url: "search",
-    icon: Search,
+    icon: Calendar,  // Ícone para Produtos (materiais elétricos)
   },
   {
-    title: "Settings",
+    title: "Consultoria",
     url: "settings",
-    icon: Settings,
+    icon: Calendar,  // Ícone para Consultoria
   },
-]
+  {
+    title: "Procurement",
+    url: "procurement",
+    icon: Settings,  // Ícone para Procurement (aquisição de materiais)
+  },
+];
 
 export function AppSidebar({onSelect}:{onSelect:(page:string) =>void}) {
   return (

@@ -17,7 +17,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   
   const renderContent = () => {
     // Renderizando diretamente o Faq para as páginas válidas
-    if (["home", "inbox", "calendar", "search", "settings"].includes(selectedPage)) {
+    if (["home", "inbox", "calendar", "search", "settings","procurement"].includes(selectedPage)) {
       return <Faq page={selectedPage} />;
     }
 
