@@ -2,26 +2,29 @@ import React, { useEffect, useState } from 'react';
 
 interface TypingEffectProps {
   text: string;
-  speed?: number;
+  speed?: number; 
 }
 
-const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 15 }) => {
+const TypingEffect: React.FC<TypingEffectProps> = ({ text, speed = 30 }) => {
   const [displayedText, setDisplayedText] = useState('');
+  const [index, setIndex] = useState(0); 
 
   useEffect(() => {
-    let index = 0;
-
-    const interval = setInterval(() => {
+    const typeText = () => {
       if (index < text.length) {
-        setDisplayedText(prev => prev + text[index]);
-        index++;
-      } else {
-        clearInterval(interval);
+        setDisplayedText((prev) => prev + text[index]);
+        setIndex(index + 1); 
       }
-    }, speed);
+    };
+
+    const interval = setInterval(typeText, speed);
+
+    if (index >= text.length) {
+      clearInterval(interval);
+    }
 
     return () => clearInterval(interval);
-  }, [text, speed]);
+  }, [index, text, speed]);
 
   return <span>{displayedText}</span>;
 };

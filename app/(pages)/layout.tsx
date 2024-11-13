@@ -3,10 +3,12 @@ import Header from "@/Components/header";
 
 const PagesLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className="flex flex-col min-h-screen text-primary">
+    <div className="flex flex-col min-h-screen my-16 mb-20 md:mb-0 text-primary">
       <Header />
-      <main >{children}</main>
-      <Footer />
+      <div>
+        <main className="my-2 ">{children}</main>
+        <Footer />
+      </div>
     </div>
   );
 };

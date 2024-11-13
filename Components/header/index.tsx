@@ -9,55 +9,55 @@ import {
   FaCogs,
   FaHome,
   FaInfoCircle,
-  FaUser,
 } from "react-icons/fa";
 import ThemeToggle from "./themeToggle";
 
 const Header = () => {
   const [isSticky, setSticky] = useState(false);
 
-  useEffect(() =>{
-    const handleScroll = () =>{
-        if(window.scrollY > 100){
-            setSticky(true);
-        }else{
-            setSticky(false);
-        }
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) {
+        setSticky(true);
+      } else {
+        setSticky(false);
+      }
     };
 
-    window.addEventListener("scroll",handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-        window.addEventListener('scroll',handleScroll);
-    }
-})
+      window.addEventListener("scroll", handleScroll);
+    };
+  });
 
   const navItems = [
     { link: "Home", path: "/", icon: <FaHome /> },
-    { link: "Product", path: "/product", icon: <FaBox /> },
+    { link: "Product", path: "/Products", icon: <FaBox /> },
     { link: "Service", path: "/service", icon: <FaCogs /> },
     { link: "Blog", path: "/blog", icon: <FaBlog /> },
-    { link: "about", path: "/About", icon: <FaUser /> },
+    { link: "about", path: "/About", icon: <FaInfoCircle /> },
     { link: "Faq", path: "/Faq", icon: <FaQuestion /> },
   ];
 
   return (
     <header
-      className={`w-full ${isSticky ? "sticky top-0 left-0 right-0 border-b" :" dark:bg-orange-500 00 duration-300 transition-colors ease-in-out"} fixed top-0 left-0 right-0 z-50`}
+      className={`w-full ${
+        isSticky
+          ? "sticky top-0 left-0 right-0 border-b"
+          : " dark:bg-orange-500 00 duration-300 transition-colors ease-in-out"
+      } fixed top-0 left-0 right-0 z-50`}
     >
       <nav
         className={`py-4 px-4 ${
           isSticky
-            ? "bg-opacity-90 bg-white dark:bg-black/80 duration-300 transition-colors ease-in-out"
+            ? "bg-opacity-90 bg-white dark:bg-black/90 duration-300 transition-colors ease-in-out"
             : " duration-300 transition-colors ease-in-out"
         }`}
       >
         <div className="flex justify-between items-center text-base gap-8">
           {/* Logo e texto (ajustado para responsividade no mobile) */}
-          <Link
-            href="/"
-            className="flex items-center space-x-2"
-          >
+          <Link href="/" className="flex items-center space-x-2">
             <img
               src="https://media.istockphoto.com/id/1313644269/pt/vetorial/gold-and-silver-circle-star-logo-template.jpg?s=612x612&w=0&k=20&c=scmIJTmynhc2Y3fs9a-RN6UDB5OJrz06AJqo5w9jSgo="
               alt="logo"
@@ -78,7 +78,7 @@ const Header = () => {
             <input
               type="text"
               placeholder="Buscar..."
-              className="px-4 py-2 border w-11/12 rounded-full bg-gray-800 dark:bg-black max-w-screen-md text-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-transform duration-150 ease-in-out"
+              className="px-4 py-2 border w-11/12 rounded-full bg-gray-800 dark:bg-black max-w-screen-md text-white shadow-lg focus:outline-none ring-1 ring-white focus:ring-2 focus:ring-blue-500 transition-transform duration-150 ease-in-out"
             />
           </div>
 
