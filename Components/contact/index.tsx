@@ -2,37 +2,40 @@ import React from 'react';
 
 const Contact = () => {
   return (
-    <section className="bg-blue-600  py-12 px-4 md:px-8 lg:px-16">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6">Entre em Contato Conosco</h2>
-        <p className="mb-8 text-base md:text-lg">
-          Estamos aqui para ajudar! Preencha o formulário abaixo para nos enviar uma mensagem.
+    <section className="max-w-4xl mx-auto py-12 dark:bg-gray-900 border-2 ">
+      <div className="max-w-sm mx-auto p-6 rounded-lg shadow-md">
+        <h2 className="text-xl font-semibold text-blue-600 text-center mb-4">Entre em Contato</h2>
+        <p className="text-sm text-gray-600 text-center mb-6">
+          Preencha o formulário para nos enviar uma mensagem.
         </p>
         
-        <form className="space-y-6">
-          <div className='mb-4'>
+        <form className="space-y-4">
+          <div className='mb-3'>
             <input 
               type="text" 
               placeholder="Nome Completo" 
-              className="w-full p-3 rounded-lg text-black s"
+              className="w-full p-2 rounded-lg text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div className='mb-4'>
+          <div className='mb-3'>
             <input 
               type="email" 
               placeholder="Email" 
-              className="w-full p-3 rounded-lg"
+              className="w-full p-2 rounded-lg text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
             />
           </div>
-          <div className='mb-4'>
+          <div className='mb-3'>
             <textarea 
               placeholder="Mensagem" 
-              className="w-full p-3 rounded-lg " 
-              rows={5}
+              className="w-full p-2 rounded-lg text-black border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500" 
+              rows={3}
             ></textarea>
           </div>
-          <button type="submit" className="w-full bg-white text-blue-600 font-semibold py-3 rounded-lg hover:bg-gray-200 transition">
-            Enviar Mensagem
+          <button 
+            type="submit" 
+            className="w-auto block mx-auto bg-blue-600 text-white font-semibold py-2 px-8 rounded-lg hover:bg-orange-500 transition duration-300"
+          >
+            Enviar
           </button>
         </form>
       </div>

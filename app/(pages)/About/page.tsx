@@ -38,23 +38,23 @@ const About = () => {
 
       {/* Seção de Como Ajudamos da Melhor Maneira */}
       <section className="max-w-4xl mx-auto py-12">
-  <h2 className="text-2xl font-semibold text-blue-600 text-center mb-8">Como Ajudamos da Melhor Maneira</h2>
+     <h2 className="text-2xl font-semibold text-blue-600 text-center mb-8">Como Ajudamos da Melhor Maneira</h2>
 
-  <div className="shadow-lg p-6 rounded-lg dark:bg-gray-900 border-2">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEVtyfxGIY_Ef9NoMNxaK4kEYo28yjdpvWoQ&s" alt="Atendimento Personalizado" className="w-full h-48 object-cover mb-4 rounded-lg" />
-    <h3 className="text-xl font-semibold text-blue-600">Atendimento Personalizado</h3>
-    <p className="text-gray-700 mt-2">
-      Priorizamos o atendimento personalizado, oferecendo soluções sob medida que atendem às suas necessidades específicas. Nossa equipe de especialistas trabalha de perto com você para garantir os melhores resultados em cada etapa do seu projeto.
-    </p>
-  </div>
+      <div className="shadow-lg p-6 rounded-lg dark:bg-gray-900 border-2">
+         <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEVtyfxGIY_Ef9NoMNxaK4kEYo28yjdpvWoQ&s" alt="Atendimento Personalizado" className="w-full h-48 object-cover mb-4 rounded-lg" />
+         <h3 className="text-xl font-semibold text-blue-600">Atendimento Personalizado</h3>
+           <p className="text-gray-700 mt-2">
+          Priorizamos o atendimento personalizado, oferecendo soluções sob medida que atendem às suas necessidades específicas. Nossa equipe de especialistas trabalha de perto com você para garantir os melhores resultados em cada etapa do seu projeto.
+         </p>
+      </div>
 
-  <div className="shadow-lg p-6 rounded-lg mt-8 dark:bg-gray-900 border-2">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEVtyfxGIY_Ef9NoMNxaK4kEYo28yjdpvWoQ&s" alt="Produtos de Alta Qualidade" className="w-full h-48 object-cover mb-4 rounded-lg" />
-    <h3 className="text-xl font-semibold text-blue-600">Produtos de Alta Qualidade</h3>
-    <p className="text-gray-700 mt-2">
-      Fornecemos apenas produtos de alta qualidade, com garantia de durabilidade e desempenho superior. Trabalhamos com as melhores marcas do mercado, oferecendo confiança e segurança para cada cliente.
-    </p>
-  </div>
+      <div className="shadow-lg p-6 rounded-lg mt-8 dark:bg-gray-900 border-2">
+       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEVtyfxGIY_Ef9NoMNxaK4kEYo28yjdpvWoQ&s" alt="Produtos de Alta Qualidade" className="w-full h-48 object-cover mb-4 rounded-lg" />
+       <h3 className="text-xl font-semibold text-blue-600">Produtos de Alta Qualidade</h3>
+       <p className="text-gray-700 mt-2">
+       Fornecemos apenas produtos de alta qualidade, com garantia de durabilidade e desempenho superior. Trabalhamos com as melhores marcas do mercado, oferecendo confiança e segurança para cada cliente.
+       </p>
+      </div>
 
   <div className="shadow-lg p-6 rounded-lg mt-8 dark:bg-gray-900 border-2">
     <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEVtyfxGIY_Ef9NoMNxaK4kEYo28yjdpvWoQ&s" alt="Soluções Inovadoras" className="w-full h-48 object-cover mb-4 rounded-lg" />
@@ -74,14 +74,13 @@ const About = () => {
 </section>
 
 
-      {/* Seção de Clientes */}
-      <section className=" py-12">
+      {/* Seção de Clientes <section className=" py-12">
         <div className="text-center mb-12  dark:bg-gray-900 border-2 ">
           <h2 className="text-2xl font-semibold text-blue-600">Nossos Clientes</h2>
           <p className="text-lg text-gray-700">Empresas que confiam em nós para fornecer soluções elétricas de alta qualidade.</p>
         </div>
         <div className="flex justify-center gap-8 flex-wrap  dark:bg-gray-900 border-2 ">
-          {/* Exemplo de Clientes */}
+          {/* Exemplo de Clientes *
           <div className="w-32 h-32  shadow-lg flex justify-center items-center rounded-lg">
             <img src="https://logosindustrias.co.mz/cdn/shop/files/LOGOS_PARCEIROS_-_LOGOS_INDUSTRIAS_2023-03_280x.png?v=1690505284" alt="Empresa 1" className="w-24 h-24 object-contain" />
           </div>
@@ -94,9 +93,10 @@ const About = () => {
           <div className="w-32 h-32  shadow-lg flex justify-center items-center rounded-lg">
             <img src="https://logosindustrias.co.mz/cdn/shop/files/LOGOS_PARCEIROS_-_LOGOS_INDUSTRIAS_2023-28_280x.png?v=1690505296" alt="Empresa 4" className="w-24 h-24 object-contain" />
           </div>
-          {/* Adicione mais logos de clientes conforme necessário */}
+          {/* Adicione mais logos de clientes conforme necessário *
         </div>
-      </section>
+      </section>*/}
+      
 
       {/* Seção de Valores */}
       <section className="dark:bg-gray-900 border-2  py-12">
@@ -161,7 +161,10 @@ const About = () => {
           </div>
         </div>
       </section>
-      <Contact/>
+      <section className="max-w-4xl mx-auto py-12">
+        <Contact/>
+      </section>
+      
     </div>
   );
 };
