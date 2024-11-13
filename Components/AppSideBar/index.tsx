@@ -40,7 +40,7 @@ const items = [
   },
 ]
 
-export function AppSidebar() {
+export function AppSidebar({onSelect}:{onSelect:(page:string) =>void}) {
   return (
     <div  >
             <Sidebar className="flex flex-1 pt-20">
@@ -51,8 +51,15 @@ export function AppSidebar() {
                     <SidebarMenu>
                     {items.map((item) => (
                         <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton asChild>
-                            <a href={item.url}>
+                        <SidebarMenuButton 
+                        
+                        asChild>
+                            <a href="#"
+                              onClick={(e)=>{
+                                e.preventDefault()
+                                onSelect(item.url)
+                              }}
+                            >
                             <item.icon />
                             <span>{item.title}</span>
                             </a>
