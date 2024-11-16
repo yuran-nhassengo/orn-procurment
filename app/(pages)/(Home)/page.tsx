@@ -1,4 +1,7 @@
+"use client";
+
 import React from "react";
+import Link from "next/link";
 import { HomeIntr } from "../../../Components/home/index";
 import { CarouselSpacing } from "@/Components/home/destaq";
 
@@ -20,30 +23,88 @@ const Home = () => {
       </div>
 
       {/* Serviços */}
-      <section className="mb-16 dark:bg-gray-900 border-2 p-8 rounded-lg shadow-md text-start md:text-justify">
+      <section className="mb-16 dark:bg-gray-900 border-2 p-2 sm:p-8 rounded-lg shadow-md text-start md:text-justify">
         <h2 className="text-2xl font-semibold text-blue-600 mb-4">Serviços</h2>
-        <ul className="space-y-4">
-          <li>
-            <strong>Venda de Materiais Eletrônicos:</strong> Fornecemos uma
-            variedade de componentes eletrônicos, desde resistores e capacitores
-            até painéis solares e equipamentos de automação.
-          </li>
-          <li>
-            <strong>Montagem de Painéis:</strong> Realizamos a montagem e
-            configuração de painéis elétricos sob medida para sua aplicação,
-            garantindo eficiência e segurança.
-          </li>
-          <li>
-            <strong>Serviços de Eletricidade:</strong> Oferecemos serviços de
-            instalação elétrica, manutenção e reparo, sempre com foco na
-            segurança e na qualidade do trabalho.
-          </li>
-          <li>
-            <strong>Procurement:</strong> Atuamos na busca e fornecimento de
-            materiais eletrônicos específicos, facilitando a aquisição de
-            produtos raros ou de alta demanda.
-          </li>
-        </ul>
+        <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-8">
+          <Link href="/Products">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition flex flex-col h-full">
+              <img
+                className="w-full h-48 object-cover"
+                src="https://www.valper.com.br/img/parceiros2.jpg"
+                alt="Venda de Materiais Eletrônicos"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="font-semibold text-lg text-blue-600">
+                  Venda de Materiais Eletrônicos
+                </h3>
+                <p className="flex-grow">
+                  Fornecemos uma variedade de componentes eletrônicos, desde
+                  resistores e capacitores até painéis solares e equipamentos de
+                  automação.
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          <Link href="/Servicos">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition flex flex-col h-full">
+              <img
+                className="w-full h-48 object-cover"
+                src="https://netzei-cms-s3.s3.amazonaws.com/914249ebe1b960833d27a23b0423d901140377c1%2F7142%24quadro-min.jpg"
+                alt="Montagem de Painéis"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="font-semibold text-lg text-blue-600">
+                  Montagem de Painéis
+                </h3>
+                <p className="flex-grow">
+                  Realizamos a montagem e configuração de painéis elétricos sob
+                  medida para sua aplicação, garantindo eficiência e segurança.
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          <Link href="/Servicos">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition flex flex-col h-full">
+              <img
+                className="w-full h-48 object-cover"
+                src="/path/to/electricity-services-image.jpg"
+                alt="Serviços de Eletricidade"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="font-semibold text-lg text-blue-600">
+                  Serviços de Eletricidade
+                </h3>
+                <p className="flex-grow">
+                  Oferecemos serviços de instalação elétrica, manutenção e
+                  reparo, sempre com foco na segurança e na qualidade do
+                  trabalho.
+                </p>
+              </div>
+            </div>
+          </Link>
+
+          <Link href="/services/procurement">
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden cursor-pointer hover:shadow-xl transition flex flex-col h-full">
+              <img
+                className="w-full h-48 object-cover"
+                src="/path/to/procurement-image.jpg"
+                alt="Procurement"
+              />
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="font-semibold text-lg text-blue-600">
+                  Procurement
+                </h3>
+                <p className="flex-grow">
+                  Atuamos na busca e fornecimento de materiais eletrônicos
+                  específicos, facilitando a aquisição de produtos raros ou de
+                  alta demanda.
+                </p>
+              </div>
+            </div>
+          </Link>
+        </div>
       </section>
 
       {/* Contactos */}

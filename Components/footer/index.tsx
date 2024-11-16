@@ -4,8 +4,8 @@ import React from 'react';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="bg-gray-800 text-gray-300 py-12 px-6">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    <footer className="bg-gray-800 text-gray-300 py-12 px-8">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
         {/* Serviços */}
         <nav>
           <h6 className="text-lg font-semibold text-white mb-4">Serviços</h6>

@@ -1,4 +1,5 @@
 "use client";
+import Link from "next/link";
 import * as React from "react";
 
 const marcas = [
@@ -8,7 +9,8 @@ const marcas = [
   },
   {
     nome: "Marca A",
-    imagem: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWuRewoTL6pBRR65WtpUvf8nZ256Me2wd5oQ&s",
+    imagem:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQWuRewoTL6pBRR65WtpUvf8nZ256Me2wd5oQ&s",
   },
   {
     nome: "Marca B",
@@ -44,39 +46,6 @@ const produtosEletronicos = [
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDUVslFtUnmA5-rrcOFfpQtwaPE-iK2CXZLQ&s",
     link: "#detalhes-produto-3",
     marca: "Marca C",
-  },
-];
-
-const servicosMontagem = [
-  {
-    nome: "Montagem de Painel Elétrico",
-    descricao: "Montagem de painel elétrico com componentes de alta qualidade.",
-    imagem: "https://via.placeholder.com/150",
-    link: "#detalhes-servico-1",
-  },
-  {
-    nome: "Instalação de Fios e Cabos",
-    descricao:
-      "Instalação de fios e cabos para circuitos elétricos residenciais e comerciais.",
-    imagem: "https://via.placeholder.com/150",
-    link: "#detalhes-servico-2",
-  },
-];
-
-const consultoria = [
-  {
-    nome: "Consultoria em Projetos Elétricos",
-    descricao:
-      "Consultoria especializada para desenvolver seu projeto elétrico.",
-    imagem: "https://via.placeholder.com/150",
-    link: "#detalhes-consultoria-1",
-  },
-  {
-    nome: "Análise de Consumo Energético",
-    descricao:
-      "Análise detalhada do consumo energético para otimizar sua instalação.",
-    imagem: "https://via.placeholder.com/150",
-    link: "#detalhes-consultoria-2",
   },
 ];
 
@@ -122,7 +91,7 @@ const Products = () => {
           scrollContainerRef.current.scrollWidth -
             scrollContainerRef.current.clientWidth
         ) {
-          setScrollDirection("left"); 
+          setScrollDirection("left");
         }
       } else if (scrollDirection === "left") {
         scrollContainerRef.current.scrollLeft -= scrollAmount;
@@ -154,7 +123,6 @@ const Products = () => {
 
   return (
     <div className="container mx-auto p-6">
-      {/* Cabeçalho da Página */}
       <h1 className="text-3xl font-semibold text-blue-600 text-center mb-8">
         Nossa Loja de Eletroferragens
       </h1>
@@ -227,72 +195,16 @@ const Products = () => {
           ))}
         </div>
       </section>
-      {/* Serviços de Montagem */}
-      <section id="servicos-montagem" className="mb-12">
+      <section id="servicos-link" className="text-center mb-12">
         <h2 className="text-2xl font-semibold opacity-80 mb-4">
-          Serviços de Montagem
+          Veja Nossos Serviços
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {servicosMontagem.map((servico) => (
-            <div
-              key={servico.nome}
-              className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 transition-transform transform hover:scale-105"
-            >
-              <img
-                src={servico.imagem}
-                alt={servico.nome}
-                className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => abrirModal(servico)}
-              />
-              <h3 className="text-lg font-semibold text-blue-600">
-                {servico.nome}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                {servico.descricao}
-              </p>
-              <button
-                onClick={() => abrirModal(servico)}
-                className="mt-4 inline-block text-blue-500 hover:text-blue-700"
-              >
-                Ver Detalhes
-              </button>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Consultoria */}
-      <section id="consultoria" className="mb-12">
-        <h2 className="text-2xl font-semibold opacity-80 mb-4">
-          Consultoria Elétrica
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {consultoria.map((item) => (
-            <div
-              key={item.nome}
-              className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 transition-transform transform hover:scale-105"
-            >
-              <img
-                src={item.imagem}
-                alt={item.nome}
-                className="w-full h-48 object-cover rounded-lg mb-4 cursor-pointer"
-                onClick={() => abrirModal(item)}
-              />
-              <h3 className="text-lg font-semibold text-blue-600">
-                {item.nome}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                {item.descricao}
-              </p>
-              <button
-                onClick={() => abrirModal(item)}
-                className="mt-4 inline-block text-blue-500 hover:text-blue-700"
-              >
-                Ver Detalhes
-              </button>
-            </div>
-          ))}
-        </div>
+        <Link
+          href="/Servicos" // Usando o caminho correto para a página de serviços
+          className="inline-block px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700"
+        >
+          Conheça Todos os Serviços
+        </Link>
       </section>
 
       {/* Modal de Detalhes do Produto */}
@@ -302,10 +214,10 @@ const Products = () => {
           onClick={handleClickOutside}
           className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
         >
-          <div className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 w-11/12 sm:w-2/3 lg:w-1/2">
+          <div className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 w-11/12 sm:w-2/3 lg:w-1/2 relative">
             <button
               onClick={fecharModal}
-              className="absolute top-2 right-2 text-gray-600 dark:text-gray-300"
+              className="absolute top-2 right-2  text-2xl font-extrabold"
             >
               X
             </button>

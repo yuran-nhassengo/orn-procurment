@@ -14,13 +14,13 @@ const highlights = [
     title: "Serviço de Montagem de Painéis",
     description:
       "Contrate nosso serviço de montagem e ganhe um desconto exclusivo em sua próxima compra de materiais.",
-    target: "/Products", 
+    target: "/Servicos", 
   },
   {
     title: "Consultoria Gratuita",
     description:
       "Faça uma consulta gratuita sobre seus projetos elétricos e receba orientação de nossos especialistas.",
-    target: "/Products", 
+    target: "/Servicos", 
   },
 ];
 

@@ -14,29 +14,40 @@ import ThemeToggle from "./themeToggle";
 
 const Header = () => {
   const [isSticky, setSticky] = useState(false);
+  const [currentPath, setCurrentPath] = useState("");
 
   useEffect(() => {
+    setCurrentPath(window.location.pathname);
+
     const handleScroll = () => {
-      if (window.scrollY > 100) {
-        setSticky(true);
-      } else {
-        setSticky(false);
-      }
+      setSticky(window.scrollY > 100);
+    };
+
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
     };
 
     window.addEventListener("scroll", handleScroll);
+    window.addEventListener("popstate", handlePopState);
+
+    const originalPushState = window.history.pushState;
+    window.history.pushState = (...args) => {
+      originalPushState.apply(window.history, args);
+      setCurrentPath(window.location.pathname);
+    };
 
     return () => {
-      window.addEventListener("scroll", handleScroll);
+      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener("popstate", handlePopState);
     };
-  });
+  }, []);
 
   const navItems = [
     { link: "Home", path: "/", icon: <FaHome /> },
     { link: "Product", path: "/Products", icon: <FaBox /> },
-    { link: "Service", path: "/service", icon: <FaCogs /> },
+    { link: "Service", path: "/Servicos", icon: <FaCogs /> },
     { link: "Blog", path: "/blog", icon: <FaBlog /> },
-    { link: "about", path: "/About", icon: <FaInfoCircle /> },
+    { link: "About", path: "/About", icon: <FaInfoCircle /> },
     { link: "Faq", path: "/Faq", icon: <FaQuestion /> },
   ];
 
@@ -56,7 +67,6 @@ const Header = () => {
         }`}
       >
         <div className="flex justify-between items-center text-base gap-8">
-          {/* Logo e texto (ajustado para responsividade no mobile) */}
           <Link href="/" className="flex items-center space-x-2">
             <img
               src="https://media.istockphoto.com/id/1313644269/pt/vetorial/gold-and-silver-circle-star-logo-template.jpg?s=612x612&w=0&k=20&c=scmIJTmynhc2Y3fs9a-RN6UDB5OJrz06AJqo5w9jSgo="
@@ -73,15 +83,6 @@ const Header = () => {
             </div>
           </Link>
 
-          {/* Barra de pesquisa */}
-          <div className="flex flex-1 justify-end md:justify-center animate-pulse">
-            <input
-              type="text"
-              placeholder="Buscar..."
-              className="px-4 py-2 border w-11/12 rounded-full bg-gray-800 dark:bg-black max-w-screen-md text-white shadow-lg focus:outline-none ring-1 ring-white focus:ring-2 focus:ring-blue-500 transition-transform duration-150 ease-in-out"
-            />
-          </div>
-
           {/* Links de navegação no desktop */}
           <ul className="md:flex space-x-4 xl:space-x-8 hidden">
             <ThemeToggle />
@@ -89,7 +90,11 @@ const Header = () => {
               <Link
                 href={path}
                 key={path}
-                className="block text-sm lg:text-lg text-cinza hover:text-blue-500 font-medium transition-all duration-200 ease-in-out"
+                className={`block text-sm lg:text-lg text-cinza font-medium transition-all duration-200 ease-in-out ${
+                  currentPath === path
+                    ? "text-blue-500 font-semibold" // Destaca o link da página ativa
+                    : "hover:text-blue-500"
+                }`}
               >
                 {link}
               </Link>
@@ -104,12 +109,23 @@ const Header = () => {
           {navItems.map(({ link, path, icon }) => (
             <Link href={path} key={path} className="block text-center">
               <div className="flex flex-col items-center justify-center">
-                {/* Ícone com hover e transição suave */}
-                <div className="text-white text-3xl hover:text-blue-500 transition-all duration-200 ease-in-out">
+                <div
+                  className={`text-3xl transition-all duration-200 ease-in-out ${
+                    currentPath === path
+                      ? "text-blue-500" // Cor azul para a página ativa
+                      : "text-white hover:text-blue-500"
+                  }`}
+                >
                   {icon}
                 </div>
                 {/* Mini texto abaixo do ícone */}
-                <span className="block text-xs text-white mt-1">{link}</span>
+                <span
+                  className={`block text-xs mt-1 ${
+                    currentPath === path ? "text-blue-500" : "text-white"
+                  }`}
+                >
+                  {link}
+                </span>
               </div>
             </Link>
           ))}
