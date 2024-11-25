@@ -3,6 +3,7 @@
 import * as React from "react";
 import Link from "next/link";
 
+// Dados dos serviços
 const servicosMontagem = [
   {
     nome: "Montagem de Painel Elétrico",
@@ -39,23 +40,29 @@ const consultoria = [
 ];
 
 const Servicos = () => {
-  const [modalAberto, setModalAberto] = React.useState(false);
-  const [produtoDetalhado, setProdutoDetalhado] = React.useState(null);
+  const [imagemAtiva, setImagemAtiva] = React.useState(servicosMontagem[0].imagem);
+  const [aberto, setAberto] = React.useState(null); // Para controlar o estado de expansão de cada serviço
+  const [indexImagem, setIndexImagem] = React.useState(0); // Para controlar o índice da imagem atual do carrossel
 
-  const abrirModal = (produto) => {
-    setProdutoDetalhado(produto);
-    setModalAberto(true);
+  // Função para trocar as imagens automaticamente
+  const trocarImagemAutomaticamente = () => {
+    setIndexImagem((prevIndex) => (prevIndex + 1) % servicosMontagem.length);
   };
 
-  const fecharModal = () => {
-    setModalAberto(false);
-    setProdutoDetalhado(null);
-  };
+  // Usando useEffect para criar o intervalo de troca automática de imagens
+  React.useEffect(() => {
+    const interval = setInterval(trocarImagemAutomaticamente, 5000); // Trocar a imagem a cada 5 segundos
+    return () => clearInterval(interval); // Limpar o intervalo quando o componente for desmontado
+  }, []);
 
-  const handleClickOutside = (e) => {
-    if (e.target.id === "modal-container") {
-      fecharModal();
-    }
+  // Atualizar a imagem à esquerda com base no índice do carrossel
+  React.useEffect(() => {
+    setImagemAtiva(servicosMontagem[indexImagem].imagem);
+  }, [indexImagem]);
+
+  const abrirDropdown = (index) => {
+    // Alterna o estado de aberto para o serviço clicado
+    setAberto(aberto === index ? null : index);
   };
 
   return (
@@ -64,73 +71,91 @@ const Servicos = () => {
         Nossos Serviços
       </h1>
 
-      {/* Serviços de Montagem */}
-      <section id="servicos-montagem" className="mb-12">
-        <h2 className="text-2xl font-semibold opacity-80 mb-4">
-          Serviços de Montagem
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {servicosMontagem.map((servico) => (
-            <div
-              key={servico.nome}
-              className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 transition-transform transform hover:scale-105"
-            >
-              <img
-                src={servico.imagem}
-                alt={servico.nome}
-                className="w-full h-48 object-cover rounded-lg mb-4"
-                onClick={() => abrirModal(servico)}
-              />
-              <h3 className="text-lg font-semibold text-blue-600">
-                {servico.nome}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                {servico.descricao}
-              </p>
-              <button
-                onClick={() => abrirModal(servico)} // Passa o serviço para o modal
-                className="mt-4 inline-block text-blue-500 hover:text-blue-700"
-              >
-                Ver Detalhes
-              </button>
-            </div>
-          ))}
+      <div className="flex flex-col lg:flex-row justify-between items-start gap-12">
+        {/* Imagem à esquerda (carrossel) */}
+        <div className="flex-1">
+          <img
+            src={imagemAtiva}
+            alt="Imagem de serviço"
+            className="w-full h-96 object-cover rounded-lg shadow-lg"
+          />
         </div>
-      </section>
 
-      {/* Consultoria */}
-      <section id="consultoria" className="mb-12">
-        <h2 className="text-2xl font-semibold opacity-80 mb-4">
-          Consultoria Elétrica
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {consultoria.map((item) => (
-            <div
-              key={item.nome}
-              className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 transition-transform transform hover:scale-105"
-            >
-              <img
-                src={item.imagem}
-                alt={item.nome}
-                className="w-full h-48 object-cover rounded-lg mb-4"
-                onClick={() => abrirModal(item)}
-              />
-              <h3 className="text-lg font-semibold text-blue-600">
-                {item.nome}
-              </h3>
-              <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
-                {item.descricao}
-              </p>
-              <button
-                onClick={() => abrirModal(item)} // Passa o item para o modal
-                className="mt-4 inline-block text-blue-500 hover:text-blue-700"
-              >
-                Ver Detalhes
-              </button>
+        {/* Cards à direita */}
+        <div className="flex-1">
+          {/* Serviços de Montagem */}
+          <section id="servicos-montagem" className="mb-12">
+            <h2 className="text-2xl font-semibold opacity-80 mb-4">
+              Serviços de Montagem
+            </h2>
+            <div className="space-y-4">
+              {servicosMontagem.map((servico, index) => (
+                <div
+                  key={servico.nome}
+                  className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 transition-transform transform hover:scale-105 cursor-pointer"
+                  onClick={() => abrirDropdown(index)} // Abre/fecha o dropdown ao clicar no card
+                >
+                  <h3 className="text-lg font-semibold text-blue-600">
+                    {servico.nome}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                    {servico.descricao}
+                  </p>
+
+                  {/* Detalhes em dropdown */}
+                  {aberto === index && (
+                    <div className="mt-4 text-sm text-gray-600 dark:text-gray-300">
+                      <p>Detalhes completos sobre o serviço.</p>
+                      <ul className="list-disc ml-4">
+                        <li>Detalhe 1 do serviço.</li>
+                        <li>Detalhe 2 do serviço.</li>
+                        <li>Detalhe 3 do serviço.</li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ))}
             </div>
-          ))}
+          </section>
+
+          {/* Consultoria */}
+          <section id="consultoria" className="mb-12">
+            <h2 className="text-2xl font-semibold opacity-80 mb-4">
+              Consultoria Elétrica
+            </h2>
+            <div className="space-y-4">
+              {consultoria.map((item, index) => (
+                <div
+                  key={item.nome}
+                  className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 transition-transform transform hover:scale-105 cursor-pointer"
+                  onClick={() => abrirDropdown(index)} // Abre/fecha o dropdown ao clicar no card
+                >
+                  <h3 className="text-lg font-semibold text-blue-600">
+                    {item.nome}
+                  </h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 mb-2">
+                    {item.descricao}
+                  </p>
+
+                  {/* Detalhes em dropdown */}
+                  {aberto === index && (
+                    <div className="mt-4 text-sm text-gray-600 dark:text-gray-300">
+                      <p>Detalhes completos sobre a consultoria.</p>
+                      <ul className="list-disc ml-4">
+                        <li>Detalhe 1 da consultoria.</li>
+                        <li>Detalhe 2 da consultoria.</li>
+                        <li>Detalhe 3 da consultoria.</li>
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </section>
         </div>
-      </section>
+      </div>
+
+      {/* Link para outros produtos */}
       <section id="servicos-link" className="text-center mb-12">
         <h2 className="text-2xl font-semibold opacity-80 mb-4">
           Veja Nossos Produtos
@@ -142,43 +167,6 @@ const Servicos = () => {
           Conheça Todos os Produtos
         </Link>
       </section>
-
-      {/* Modal de Detalhes do Produto */}
-      {modalAberto && produtoDetalhado && (
-        <div
-          id="modal-container"
-          onClick={handleClickOutside}
-          className="fixed inset-0 bg-black bg-opacity-75 flex justify-center items-center z-50"
-        >
-          <div className="bg-white p-4 rounded-lg shadow-lg dark:bg-gray-800 w-11/12 sm:w-2/3 lg:w-1/2 relative">
-            <button
-              onClick={fecharModal}
-              className="absolute top-2 right-2 text-2xl font-extrabold"
-            >
-              X
-            </button>
-            <h3 className="text-2xl font-semibold text-blue-600 mb-4">
-              {produtoDetalhado.nome}
-            </h3>
-            <img
-              src={produtoDetalhado.imagem}
-              alt={produtoDetalhado.nome}
-              className="w-full h-64 object-cover rounded-lg mb-4"
-            />
-            <p className="text-lg text-gray-800 dark:text-gray-300 mb-4">
-              {produtoDetalhado.descricao}
-            </p>
-            <div className="mt-4">
-              <button
-                onClick={fecharModal}
-                className="mt-4 px-4 py-2 bg-green-500 text-gray-900 rounded-md shadow-lg transition hover:bg-green-600 hover:shadow-xl"
-              >
-                Fechar
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
     </div>
   );
 };
