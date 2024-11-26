@@ -43,12 +43,12 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { link: "Home", path: "/", icon: <FaHome /> },
-    { link: "Product", path: "/Products", icon: <FaBox /> },
-    { link: "Service", path: "/Servicos", icon: <FaCogs /> },
-    { link: "Blog", path: "/blog", icon: <FaBlog /> },
-    { link: "About", path: "/About", icon: <FaInfoCircle /> },
-    { link: "Faq", path: "/Faq", icon: <FaQuestion /> },
+    { link: "Home", path: "/", icon: <FaHome size={25}/> },
+    { link: "Product", path: "/Products", icon: <FaBox size={25} /> },
+    { link: "Service", path: "/Servicos", icon: <FaCogs size={25} /> },
+    { link: "Blog", path: "/blog", icon: <FaBlog  size={25}/> },
+    { link: "About", path: "/About", icon: <FaInfoCircle size={25} /> },
+    { link: "Faq", path: "/Faq", icon: <FaQuestion size={25} /> },
   ];
 
   return (
@@ -104,15 +104,15 @@ const Header = () => {
       </nav>
 
       {/* Barra de navegação fixa para mobile */}
-      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-blue-950 dark:bg-black/90 z-50 shadow-lg">
-        <div className="flex justify-around py-4">
+      <div className="md:hidden fixed bottom-0 left-0 right-0 bg-orange-950 dark:bg-black/90 z-50 shadow-lg">
+        <div className="flex justify-around py-3 sm:py-4">
           {navItems.map(({ link, path, icon }) => (
             <Link href={path} key={path} className="block text-center">
               <div className="flex flex-col items-center justify-center">
                 <div
                   className={`text-3xl transition-all duration-200 ease-in-out ${
                     currentPath === path
-                      ? "text-blue-500" // Cor azul para a página ativa
+                      ? "text-blue-500" 
                       : "text-white hover:text-blue-500"
                   }`}
                 >

@@ -7,7 +7,7 @@ import { CarouselSpacing } from "@/Components/home/destaq";
 
 const Home = () => {
   return (
-    <div className="pt-10 px-8 w-full text-justify">
+    <div className="pt-10 px-4 md:px-8 w-full text-justify">
       <h1 className="font-bold text-blue-600 text-3xl text-center mb-12">
         Introdução à Empresa
       </h1>
