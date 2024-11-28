@@ -4,7 +4,7 @@ import React from "react";
 const Footer: React.FC = () => {
   return (
     <footer className="bg-gray-800 text-gray-300 py-10 px-2">
-      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-2 gap-2">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 gap-4">
         {/* Logo e Introdução */}
           <div className="flex items-center mb-2">
             <img
@@ -12,9 +12,6 @@ const Footer: React.FC = () => {
               alt="Logo ORN Electroferragem"
               className="h-2"
             />
-            <span className="text-white text-lg font-semibold ml-3">
-              ORN Electroferragem
-            </span>
           </div>
         {/* Serviços */}
         <nav>
