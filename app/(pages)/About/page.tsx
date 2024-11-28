@@ -1,4 +1,5 @@
 import ContactSection from '@/Components/contact';
+import MapSection from '@/Components/mapa';
 import React from 'react';
 
 const About = () => {
@@ -163,6 +164,15 @@ const About = () => {
       </section>
       <section className="max-w-4xl mx-auto py-12">
        <ContactSection/>
+      </section>
+      <section className="max-w-4xl mx-auto py-12">
+      < h2 className="text-2xl font-semibold text-blue-600 text-center mb-4">Localizacao</h2>
+      <MapSection
+            address="Rua Exemplo, 123, Maputo, Moçambique"
+            phone="+258123456789"
+            email="info@exemplo.com"
+            mapSrc="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3153.8354345098585!2d-122.41941558468157!3d37.77492927975962!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8085818c59e0c6c1%3A0x8c631eb51d2ad45f!2sMaputo%2C%20Mo%C3%A7ambique!5e0!3m2!1spt-BR!2sus!4v1692560213028!5m2!1spt-BR!2sus"
+          />
       </section>
       
     </div>
