@@ -15,7 +15,7 @@ const OtherContent = ({ title }: { title: string }) => (
   </div>
 );
 
-export default function Layout({ children }: { children: React.ReactNode }) {
+export default function Layout() {
   const [selectedPage,setSelectedPage] = useState<string>("home");
   
   const renderContent = () => {
