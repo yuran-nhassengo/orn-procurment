@@ -6,6 +6,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 
 
 
+
+
 interface FaqProps {
   page: string;
 }

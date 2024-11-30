@@ -3,8 +3,9 @@
 
 import { useState } from "react";
 import Faq from "./page";
-import { SidebarProvider, SidebarTrigger } from "../../../components/ui/sidebar";
-import { AppSidebar } from "../../../components/AppSideBar";
+import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+import { AppSidebar } from "@/components/AppSideBar";
+
 
 const OtherContent = ({ title }: { title: string }) => (
   <div>
