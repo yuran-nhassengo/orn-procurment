@@ -2,9 +2,9 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { CarrosselConsultoria } from "../../../components/Carrossel";
 import { CarrosselMontagem } from "../../../components/Carrossel/Montagem";
 import Modal from "../../../components/servicos/modal";
+import { CarrosselConsultoria } from "@/components/Carrossel/Consultoria";
 
 const servicosMontagem = [
   {
