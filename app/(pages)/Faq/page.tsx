@@ -2,9 +2,9 @@
 
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../../components/ui/accordion";
 
-// Define as props do componente
+// Define as props do componente, mas não deve ser exportado diretamente, já que é utilizado para tipagem
 interface FaqProps {
-  page: "home" | "inbox" | "calendar" | "search" | "settings" | "procurement";  // Definindo diretamente os valores válidos para 'page'
+  page: "home" | "inbox" | "calendar" | "search" | "settings" | "procurement";
 }
 
 interface FaqItem {
@@ -66,4 +66,5 @@ const Faq = ({ page }: FaqProps) => {
   );
 };
 
+// Exporte o componente Faq corretamente
 export default Faq;
