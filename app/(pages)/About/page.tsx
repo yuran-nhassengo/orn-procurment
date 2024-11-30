@@ -1,5 +1,5 @@
-import ContactSection from '@/Components/contact';
-import MapSection from '@/Components/mapa';
+import ContactSection from '@/components/contact';
+import MapSection from '@/components/mapa';
 import React from 'react';
 
 const About = () => {

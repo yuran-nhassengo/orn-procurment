@@ -2,8 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { HomeIntr } from "../../../Components/home/index";
-import { CarouselSpacing } from "@/Components/home/destaq";
+import { HomeIntr } from "../../../components/home/index";
+import { CarouselSpacing } from "@/components/home/destaq";
 
 const Home = () => {
   return (
