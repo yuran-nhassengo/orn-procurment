@@ -1,6 +1,7 @@
 "use client";
 
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/Components/ui/accordion'
+import { Accordion, AccordionContent, AccordionItem,
+   AccordionTrigger } from '../../../Components/ui/accordion'
 
 interface FaqProps {
   page: string;
