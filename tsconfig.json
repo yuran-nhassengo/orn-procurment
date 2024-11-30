@@ -24,7 +24,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./*"
+        "components/*"
       ]
     },
     "target": "ES2017"
