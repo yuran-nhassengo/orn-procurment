@@ -69,10 +69,9 @@ export function CarouselSpacing() {
                 <p className="text-base text-center sm:text-start text-gray-600 dark:text-gray-300 mb-2 sm:mb-4">
                   {highlight.description}
                 </p>
-                <Link href={highlight.target}> {/* Usando Link em vez de <a> */}
-                  <a className="mb-5 underline text-blue-500 hover:text-blue-700 font-semibold">
+                <Link href={highlight.target} className="mb-5 underline text-blue-500 hover:text-blue-700 font-semibold"> {/* Usando Link em vez de <a> */}
                     Saiba mais
-                  </a>
+                  
                 </Link>
               </div>
             ))}
