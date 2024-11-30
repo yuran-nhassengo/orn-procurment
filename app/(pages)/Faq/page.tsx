@@ -1,15 +1,8 @@
 import React from "react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "../../../components/ui/accordion";
+import { FaqItem, FaqProps } from "@/app/types/produto";
 
-// Tipagem de Props
-interface FaqProps {
-  page: "home" | "inbox" | "calendar" | "search" | "settings" | "procurement";
-}
 
-interface FaqItem {
-  question: string;
-  answer: string;
-}
 
 // Componente Faq
 const Faq: React.FC<FaqProps> = ({ page }) => {

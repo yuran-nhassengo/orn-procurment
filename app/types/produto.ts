@@ -21,6 +21,16 @@ export interface Produto {
     createdAt: Date;
     updatedAt: Date;
   }
+
+  // Tipagem de Props
+export interface FaqProps {
+  page: "home" | "inbox" | "calendar" | "search" | "settings" | "procurement";
+}
+
+export interface FaqItem {
+  question: string;
+  answer: string;
+}
   
   
   export interface Fornecedor {
