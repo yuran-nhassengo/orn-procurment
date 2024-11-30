@@ -2,8 +2,9 @@
 
 import React from "react";
 import Link from "next/link";
-import { HomeIntr } from "@/components/home";
-import { CarouselSpacing } from "@/components/home/destaq";
+import { HomeIntr } from "../../../components/home";
+import { CarouselSpacing } from "../../../components/home/destaq";
+
 
 
 
